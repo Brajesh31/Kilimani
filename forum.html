@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Forums</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1em;
+        }
+
+        main {
+            margin-top: 80px;
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            flex: 1;
+            height: calc(100vh - 80px);
+        }
+
+        nav {
+            background-color: #fff;
+            width: 250px;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+
+        nav h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .discussion-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .discussion-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .discussion-list li:hover {
+            background-color: #f5f5f5;
+        }
+
+        .chat-window {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            border-left: 1px solid #ddd;
+            padding: 20px;
+        }
+
+        .chat-header {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding-right: 10px;
+        }
+
+        .message {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+        }
+
+        .message h3 {
+            margin: 0 0 5px;
+            font-size: 1.2em;
+        }
+
+        .message p {
+            margin: 0;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .new-post {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .new-post textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        .new-post button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .new-post button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Community Forums</h1>
+        <p>Spaces for residents to discuss and collaborate on local projects and concerns</p>
+    </header>
+    <main>
+        <nav>
+            <h2>Discussions</h2>
+            <ul class="discussion-list">
+                <li onclick="loadDiscussion('Planning and LPDP')">Planning and LPDP</li>
+                <li onclick="loadDiscussion('Public Participation')">Public Participation</li>
+                <li onclick="loadDiscussion('Government Responsiveness')">Government Responsiveness</li>
+                <li onclick="loadDiscussion('Water Shortages')">Water Shortages</li>
+                <li onclick="loadDiscussion('Green Cover')">Green Cover</li>
+                <li onclick="loadDiscussion('Power Blackouts')">Power Blackouts</li>
+                <li onclick="loadDiscussion('Noise Pollution')">Noise Pollution</li>
+                <li onclick="loadDiscussion('Waste Management')">Waste Management</li>
+                <li onclick="loadDiscussion('Infrastructure Issues')">Infrastructure Issues</li>
+                <li onclick="loadDiscussion('Flooding')">Flooding</li>
+                <li onclick="loadDiscussion('Network Reception')">Network Reception</li>
+            </ul>
+        </nav>
+        <div class="chat-window">
+            <div class="chat-header">Select a discussion to view</div>
+            <div class="messages"></div>
+            <div class="new-post">
+                <textarea placeholder="Write your message here..."></textarea>
+                <button onclick="submitPost()">Post</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        const discussions = {
+            'Planning and LPDP': [
+                { user: 'Alice', message: 'There is an urgent need for a Local Physical Development Plan (LPDP) in Kilimani. The current planning is inadequate.' },
+                { user: 'Bob', message: 'I agree. We need a comprehensive plan that considers future growth and infrastructure needs.' },
+            ],
+            'Public Participation': [
+                { user: 'Carol', message: 'Public participation in new developments feels very cosmetic. We need genuine involvement from residents.' },
+                { user: 'Dave', message: 'Absolutely. Our voices are not being heard, and decisions are made without our input.' },
+            ],
+            'Government Responsiveness': [
+                { user: 'Eve', message: 'Government agencies are not responsive to planning matters. It\'s frustrating to get any feedback.' },
+                { user: 'Frank', message: 'We need better communication channels and accountability from these agencies.' },
+            ],
+            'Water Shortages': [
+                { user: 'Grace', message: 'Water shortages have become a severe issue in Kilimani. What can we do to address this?' },
+                { user: 'Hank', message: 'Rainwater harvesting and better management of existing resources might help mitigate this problem.' },
+            ],
+            'Green Cover': [
+                { user: 'Ivy', message: 'The green cover in Kilimani is reducing. How can we promote more tree planting and preservation?' },
+                { user: 'Jack', message: 'Community tree planting events and strict regulations against deforestation could be effective.' },
+            ],
+            'Power Blackouts': [
+                { user: 'Karen', message: 'Power blackouts are too frequent. What solutions can we explore to ensure a stable power supply?' },
+                { user: 'Leo', message: 'Investing in alternative energy sources like solar could provide more reliability.' },
+            ],
+            'Noise Pollution': [
+                { user: 'Mia', message: 'Noise pollution from construction and traffic is unbearable. Any ideas on how to manage this?' },
+                { user: 'Nate', message: 'Enforcing noise regulations and creating buffer zones around residential areas might help.' },
+            ],
+            'Waste Management': [
+                { user: 'Olivia', message: 'Solid waste management strategies are poor. How can we improve waste collection and recycling?' },
+                { user: 'Paul', message: 'Community recycling programs and better waste collection schedules could make a big difference.' },
+            ],
+            'Infrastructure Issues': [
+                { user: 'Quinn', message: 'Our infrastructure is not keeping up with rapid growth. Roads, drainage, and streetlights need improvement.' },
+                { user: 'Rita', message: 'A thorough assessment and investment in infrastructure projects are necessary to support our community.' },
+            ],
+            'Flooding': [
+                { user: 'Sam', message: 'Flooding during the rainy season is a big problem. What measures can we take to prevent this?' },
+                { user: 'Tina', message: 'Improving drainage systems and creating flood barriers could help manage flood risks.' },
+            ],
+            'Network Reception': [
+                { user: 'Uma', message: 'Network reception is poor in many areas of Kilimani. How can we address this issue?' },
+                { user: 'Vince', message: 'Working with telecom companies to install more towers and improve coverage would be a good start.' },
+            ],
+        };
+
+        function loadDiscussion(discussion) {
+            const chatHeader = document.querySelector('.chat-header');
+            const messagesDiv = document.querySelector('.messages');
+            chatHeader.textContent = discussion;
+            messagesDiv.innerHTML = '';
+            if (discussions[discussion]) {
+                discussions[discussion].forEach(msg => {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = 'message';
+                    messageDiv.innerHTML = `<h3>${msg.user}</h3><p>${msg.message}</p>`;
+                    messagesDiv.appendChild(messageDiv);
+                });
+            }
+        }
+
+        function submitPost() {
+            const textarea = document.querySelector('.new-post textarea');
+            const message = textarea.value.trim();
+            const chatHeader = document.querySelector('.chat-header').textContent;
+            if (message && chatHeader !== 'Select a discussion to view') {
+                const messagesDiv = document.querySelector('.messages');
+                const newMessageDiv = document.createElement('div');
+                newMessageDiv.className = 'message';
+                newMessageDiv.innerHTML = `<h3>You</h3><p>${message}</p>`;
+                messagesDiv.appendChild(newMessageDiv);
+                discussions[chatHeader].push({ user: 'You', message });
+                textarea.value = '';
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>

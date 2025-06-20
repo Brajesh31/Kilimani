@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report an Issue - Kilimani Community</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Kilimani Community</h1>
+        <nav>
+            <ul>
+                <li><a href="../dashboard.html">Dashboard</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="issues.html">Issues</a></li>
+                <li><a href="water.html">Water</a></li>
+                <li><a href="greenspace.html">Green Space</a></li>
+                <li><a href="../forum.html">Forums</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="report.html">Report an Issue</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="report">
+            <h2>Report an Issue</h2>
+            <form id="report-form" enctype="multipart/form-data">
+                <label for="issue-type">Issue Type:</label>
+                <select id="issue-type" name="issue_type" required>
+                    <option value="water-shortage">Water Shortage</option>
+                    <option value="green-cover">Green Cover</option>
+                </select>
+                <label for="location">Location:</label>
+                <select id="location" name="location" required>
+                    <option value="">--Select Location--</option>
+                    <option value="yaya-centre">Yaya Centre</option>
+                    <option value="adams-arcade">Adams Arcade</option>
+                    <option value="green-house">The Green House</option>
+                    <option value="prestige-plaza">Prestige Plaza</option>
+                    <option value="chandarana-foodplus">Chandarana Foodplus</option>
+                    <option value="kings-gym">King's Gym</option>
+                    <option value="kilimani-primary-school">Kilimani Primary School</option>
+                    <option value="kenol-petrol-station">Kenol Petrol Station</option>
+                    <option value="junction-mall">The Junction Mall</option>
+                    <option value="lavington-mall">Lavington Mall</option>
+                    <option value="kilimani-police-station">Kilimani Police Station</option>
+                </select>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+                <label for="photo">Upload Photo/Video:</label>
+                <input type="file" id="photo" name="photo" accept="image/*,video/*">
+                <label for="user-email">Email:</label>
+                <input type="email" id="user-email" name="user_email">
+                <label for="user-phone">Phone Number:</label>
+                <input type="tel" id="user-phone" name="user_phone">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <script src="../static/report.js"></script>
+</body>
+</html>

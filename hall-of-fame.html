@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hall of Fame - Leaderboard</title>
+    <style>
+
+        header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+    margin: auto;
+}
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        #hall-of-fame {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+            margin: 2em auto;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        #hall-of-fame h1 {
+            font-size: 2.5em;
+            color: #2e7d32; /* Dark green for emphasis */
+            margin-bottom: 0.5em;
+        }
+
+        #hall-of-fame p {
+            font-size: 1.2em;
+            margin-bottom: 2em;
+        }
+
+        .leaderboard {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1em;
+        }
+
+        .leaderboard th, .leaderboard td {
+            padding: 1em;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .leaderboard th {
+            background-color: #4caf50; /* Green header background */
+            color: white;
+            font-size: 1.1em;
+        }
+
+        .leaderboard tr:hover {
+            background-color: #f1f1f1; /* Light gray background on hover */
+        }
+
+        .profile-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kilimani Community</h1>
+        <nav>
+            <ul>
+                <li><a href="./dashboard.html">Dashboard</a></li>
+                <li><a href="./templates/home.html">Home</a></li>
+                <li><a href="./templates/issues.html">Issues</a></li>
+                <li><a href="./templateswater.html">Water</a></li>
+                <li><a href="./templates/greenspace.html">Green Space</a></li>
+                <li><a href="forum.html">Forum</a></li>
+                <li><a href="./templates/contact.html">Contact</a></li>
+                <li><a href="./templates/report.html">Report an Issue</a></li>
+                <li><a href="hall-of-fame.html">Hall of Fame</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+    <section id="hall-of-fame">
+        <h1>Hall of Fame</h1>
+        <p>Congratulations to our top performers! See who leads the way in the Green Cover Tournament.</p>
+        <table class="leaderboard">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Profile</th>
+                    <th>Name</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><img src="./templates/images/user1.jpeg" alt="User 1" class="profile-img"></td>
+                    <td>Jane Doe</td>
+                    <td>1500</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><img src="./templates/images/user2.jpeg" alt="User 2" class="profile-img"></td>
+                    <td>John Smith</td>
+                    <td>1400</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><img src="./templates/images/user3.jpeg" alt="User 3" class="profile-img"></td>
+                    <td>Emily Johnson</td>
+                    <td>1300</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kilimani Community</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="../static/contact_status.css">
+</head>
+<body>
+    <header>
+        <h1>Kilimani Community</h1>
+        <nav>
+            <ul>
+                <li><a href="../dashboard.html">Dashboard</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="issues.html">Issues</a></li>
+                <li><a href="water.html">Water</a></li>
+                <li><a href="greenspace.html">Green Space</a></li>
+                <li><a href="../forum.html">Forums</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="report.html">Report an Issue</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="dashboard">
+            <h2>KILIMANI COMMUNITY DASHBOARD</h2>
+            <div class="statistics">
+                <div class="stat">
+                    <h3>Total Reports</h3>
+                    <p id="total-reports">0</p>
+                </div>
+                <div class="stat">
+                    <h3>Water Shortage Areas</h3>
+                    <p id="water-shortage-areas">0</p>
+                </div>
+                <div class="stat">
+                    <h3>Green Cover Areas</h3>
+                    <p id="green-cover-areas">0</p>
+                </div>
+            </div>
+            <div id="map" class="map">
+                <img src="./images/kilimani-map.jpg" alt="Kilimani-map" >
+                
+            </div>
+            <h3>Recent Reports</h3>
+            <ul id="recent-reports" class="reports-list"></ul>
+            <h3>Trends and Data</h3>
+            <canvas id="issueChart"></canvas>
+            
+        </section>
+        <section id="contact-status" style="display: none;">
+            <h2>Contact Submission Status</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Received</th>
+                        <th>Being Reviewed</th>
+                        <th>Reviewed</th>
+                        <th>Message Sent</th> <!-- New column for the message -->
+                    </tr>
+                </thead>
+                <tbody id="status-table-body">
+                    <!-- Status rows will be inserted here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Kilimani Community</p>
+    </footer>
+    <script src="../static/script.js"></script>
+    <script src="../static/contact_status.js"></script>
+</body>
+</html>

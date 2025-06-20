@@ -1,0 +1,50 @@
+{
+    "project_info": {
+      "project_number": "61123389210",
+      "firebase_url": "https://aqua-guardian-kilimani-default-rtdb.firebaseio.com",
+      "project_id": "aqua-guardian-kilimani",
+      "storage_bucket": "aqua-guardian-kilimani.appspot.com"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:61123389210:android:fd14942bcd14714529aea3",
+          "android_client_info": {
+            "package_name": "com.Assan.AquaGuardianKilimaniWardK"
+          }
+        },
+        "oauth_client": [],
+        "api_key": [
+          {
+            "current_key": "AIzaSyCFnYsnpVFXlc4yJb4yFxLfFA-NzIxepO8"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": []
+          }
+        }
+      },
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:61123389210:android:881c2de30a3412de29aea3",
+          "android_client_info": {
+            "package_name": "com.Assasn.AquaGuardian"
+          }
+        },
+        "oauth_client": [],
+        "api_key": [
+          {
+            "current_key": "AIzaSyCFnYsnpVFXlc4yJb4yFxLfFA-NzIxepO8"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": []
+          }
+        }
+      }
+    ],
+    "configuration_version": "1"
+  }
+  

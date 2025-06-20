@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kilimani Community Hub</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1em;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .hero {
+            position: relative;
+            background: url('./images/home-background.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 2em;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)); /* Gradient overlay */
+            z-index: 1;
+        }
+
+        .hero h1, .hero p {
+            position: relative;
+            z-index: 2;
+            margin: 0;
+            font-weight: 700;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 0.5em;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin-bottom: 1em;
+            line-height: 1.4;
+        }
+
+        .button {
+            background: #4CAF50;
+            color: #fff;
+            padding: 0.8em 2em;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin-top: 1em;
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 2;
+            font-weight: 500;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        .container {
+            padding: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 2em 0;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 2em;
+            color: #333;
+            text-align: center;
+        }
+
+        .section:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+            color: #4CAF50;
+            font-weight: 700;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        footer {
+            background: #222;
+            color: #ccc;
+            padding: 1em;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 0.5em 0;
+            }
+
+            .button {
+                padding: 0.8em 1.5em;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kilimani Community</h1>
+        <nav>
+            <ul>
+                <li><a href="../dashboard.html">Dashboard</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="issues.html">Issues</a></li>
+                <li><a href="water.html">Water</a></li>
+                <li><a href="green-space.html">Green Space</a></li>
+                <li><a href="../forum.html">Forums</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="report.html">Report an Issue</a></li>
+                <li><a href="hall-of-fame.html">Hall of Fame</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to Kilimani Community Hub</h1>
+        <p>Your central platform for staying connected with matters kilimani</p>
+        <a href="#about" class="button">Learn More</a>
+    </section>
+
+    <div class="container">
+        <section id="about" class="section">
+            <h2>About This Website</h2>
+            <p>This website is designed to serve as a central hub for the Kilimani community. Here, residents can stay informed about local issues, report problems, and access important information about the neighborhood. Whether you're looking for updates on water shortages, green space initiatives, or community events, this website provides a platform to keep you connected and engaged with what's happening in Kilimani.</p>
+        </section>
+
+        <section id="know" class="section">
+            <h2>Know Kilimani</h2>
+            <p>Kilimani is a vibrant neighborhood in Nairobi, Kenya, known for its diverse community and dynamic environment. It houses a sizable segment of the upper middle-income population and offers a mix of residential and commercial properties. The area is popular for its shopping centers, schools, and recreational facilities.</p>
+        </section>
+
+        <section id="history" class="section">
+            <h2>History of Kilimani</h2>
+            <p>Originally a coffee plantation area, Kilimani has grown over the years to become one of Nairobi’s most sought-after residential areas. Its development began in the early 20th century and has continued to flourish, attracting people from various backgrounds.</p>
+        </section>
+
+        <section id="community" class="section">
+            <h2>Community and Lifestyle</h2>
+            <p>The community in Kilimani is diverse and cosmopolitan, with a mix of expatriates, professionals, and families. The area offers numerous amenities including shopping malls like Yaya Centre and Junction Mall, schools like Kilimani Primary School, and various restaurants and entertainment spots.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Kilimani Community Hub. All rights reserved.</p>
+    </footer>
+</body>
+</html>

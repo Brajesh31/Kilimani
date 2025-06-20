@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kilimani Tree Planting</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+  <style>
+    #map {
+      height: 500px;
+    }
+    #status {
+      margin-top: 10px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kilimani Tree Planting</h1>
+  <div id="map"></div>
+  <div id="status"></div>
+
+  <script>
+    // Your Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAsxb83oaivbBX6czviOI_jgZ4t-mralpk",
+  authDomain: "aqua-guardian-kilimani.firebaseapp.com",
+  databaseURL: "https://aqua-guardian-kilimani-default-rtdb.firebaseio.com",
+  projectId: "aqua-guardian-kilimani",
+  storageBucket: "aqua-guardian-kilimani.appspot.com",
+  messagingSenderId: "61123389210",
+  appId: "1:61123389210:web:7a3493f969418ce229aea3",
+  measurementId: "G-08HCWHFSGK"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Initialize map
+    var map = L.map('map').setView([-1.2921, 36.8219], 14); // Centered on Kilimani
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Reference to the database
+    var db = firebase.database().ref('trees');
+
+    // Track markers and their Firebase keys
+    var markers = {};
+
+    // Tolerance for coordinate comparison
+    const TOLERANCE = 2;
+
+    // Handle map click to add tree coordinates
+    map.on('click', function(e) {
+      if (e.originalEvent.button === 0) { // Left click to add marker
+        var latlng = e.latlng;
+        var marker = L.marker(latlng).addTo(map); // Add marker at clicked location
+
+        // Push data to Firebase and get a unique key
+        var newMarkerRef = db.push({ lat: latlng.lat, lng: latlng.lng });
+        var key = newMarkerRef.key;
+
+        // Store the marker and key
+        markers[key] = marker;
+
+        // Update status
+        document.getElementById('status').innerText = 'Tree location added successfully!';
+      }
+    });
+
+    // Handle map right-click to remove tree coordinates
+    map.on('contextmenu', function(e) { // Right-click to remove marker
+      var latlng = e.latlng;
+      var markerToRemove = null;
+      var keyToRemove = null;
+
+      // Find the marker to remove
+      for (var key in markers) {
+        var markerLatLng = markers[key].getLatLng();
+        if (Math.abs(markerLatLng.lat - latlng.lat) < TOLERANCE && Math.abs(markerLatLng.lng - latlng.lng) < TOLERANCE) {
+          markerToRemove = markers[key];
+          keyToRemove = key;
+          break;
+        }
+      }
+
+      if (markerToRemove) {
+        // Remove marker from the map
+        map.removeLayer(markerToRemove);
+        console.log("Removing marker with key:", keyToRemove); // Debugging
+
+        // Remove from Firebase
+        db.child(keyToRemove).remove()
+          .then(function() {
+            document.getElementById('status').innerText = 'Tree location removed successfully!';
+            // Ensure marker is removed from markers dictionary
+            delete markers[keyToRemove];
+          })
+          .catch(function(error) {
+            document.getElementById('status').innerText = 'Error: ' + error.message;
+            document.getElementById('status').style.color = 'red';
+          });
+      } else {
+        document.getElementById('status').innerText = 'No marker found at this location.';
+        document.getElementById('status').style.color = 'red';
+      }
+    });
+
+    // Prevent the context menu from appearing on right-click
+    map.getContainer().addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    // Display existing tree coordinates
+    db.on('value', function(snapshot) {
+      console.log("Fetching existing tree coordinates..."); // Debugging
+      snapshot.forEach(function(childSnapshot) {
+        var tree = childSnapshot.val();
+        var key = childSnapshot.key;
+        // Add marker to the map if it does not already exist
+        if (!markers[key]) {
+          var marker = L.marker([tree.lat, tree.lng]).addTo(map);
+          // Store the marker and key
+          markers[key] = marker;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

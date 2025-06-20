@@ -1,0 +1,430 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+    margin: auto;
+}
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Main Section */
+main {
+    padding: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Statistics Section */
+.statistics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+
+.stat {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5em;
+    text-align: center;
+    flex: 1;
+    margin: 0 1em;
+    transition: transform 0.3s ease;
+}
+
+.stat:hover {
+    transform: scale(1.05);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5em;
+}
+
+.stat h3 {
+    margin: 0 0 0.5em;
+}
+
+.stat p {
+    font-size: 2em;
+    margin: 0;
+}
+
+/* Map Section */
+.map {
+    margin-bottom: 2em;
+}
+
+.map img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Recent Reports and Trends Data */
+/* Recent Reports and Trends Data */
+.reports-list {
+    background: #f9f9f9;
+    /* Slightly different background color for contrast */
+    border-radius: 12px;
+    /* Increased border-radius for a more modern look */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* Slightly stronger shadow for better emphasis */
+    padding: 2em;
+    /* Increased padding for more spacing */
+    margin-bottom: 2.5em;
+    /* Adjusted margin for consistent spacing */
+}
+
+.reports-list h3 {
+    margin-top: 0;
+    color: #333;
+    /* Darker text color for better readability */
+    font-size: 1.5em;
+    /* Larger font size for heading */
+    font-weight: 600;
+    /* Bold weight for emphasis */
+    border-bottom: 2px solid #e0e0e0;
+    /* Added border for visual separation */
+    padding-bottom: 0.5em;
+    /* Padding for the border */
+}
+
+.reports-list ul {
+    list-style: none;
+    /* Remove default list styling */
+    padding: 0;
+    margin: 0;
+}
+
+.reports-list li {
+    display: flex;
+    align-items: center;
+    padding: 0.75em 0;
+    border-bottom: 1px solid #ddd;
+    /* Subtle border for list items */
+    color: #555;
+    /* Slightly lighter text color */
+}
+
+.reports-list li:last-child {
+    border-bottom: none;
+    /* Remove border for the last item */
+}
+
+.reports-list .material-icons {
+    margin-right: 0.75em;
+    /* Space between icon and text */
+    color: #007bff;
+    /* Color for icons */
+    font-size: 1.25em;
+    /* Larger icon size */
+}
+
+.reports-list strong {
+    color: #222;
+    /* Darker color for bold text */
+}
+
+/* Notifications */
+#notifications {
+    background: #ffffff;
+    /* White background for a clean look */
+    border-radius: 12px;
+    /* Increased border-radius for a modern rounded effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    /* Enhanced shadow for depth */
+    padding: 2em;
+    /* Increased padding for better spacing */
+    margin-bottom: 2.5em;
+    /* Adjusted margin for consistent spacing */
+    border: 1px solid #e0e0e0;
+    /* Light border for subtle separation */
+}
+
+#notifications h3 {
+    margin: 0;
+    font-size: 1.5em;
+    /* Larger font size for heading */
+    color: #333;
+    /* Darker text color for better readability */
+    border-bottom: 2px solid #007bff;
+    /* Border for visual separation */
+    padding-bottom: 0.5em;
+    /* Padding for the border */
+    font-weight: 600;
+    /* Bold weight for emphasis */
+}
+
+#notifications-list {
+    list-style: none;
+    /* Remove default list styling */
+    margin: 0;
+    padding: 0;
+}
+
+#notifications-list li {
+    display: flex;
+    align-items: flex-start;
+    /* Align items to the start for better text alignment */
+    padding: 1em;
+    border-bottom: 1px solid #f0f0f0;
+    /* Subtle border for list items */
+    color: #555;
+    /* Slightly lighter text color */
+    transition: background 0.3s, box-shadow 0.3s;
+    /* Smooth transition for hover effects */
+}
+
+#notifications-list li:last-child {
+    border-bottom: none;
+    /* Remove border for the last item */
+}
+
+#notifications-list li:hover {
+    background: #f9f9f9;
+    /* Light background color on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Shadow effect on hover */
+}
+
+.material-icons.icon {
+    font-size: 24px;
+    /* Adjusted icon size */
+    color: #007bff;
+    /* Color for icons */
+    margin-right: 1em;
+    /* Increased space between icon and text */
+}
+
+.notification-content {
+    flex: 1;
+    /* Allow content to take up remaining space */
+}
+
+.notification-content p {
+    margin: 0;
+    font-size: 1em;
+    /* Font size for notification text */
+}
+
+.timestamp {
+    display: block;
+    font-size: 0.875em;
+    /* Slightly smaller font size for timestamp */
+    color: #999;
+    /* Lighter color for timestamp */
+    margin-top: 0.25em;
+    /* Space above the timestamp */
+}
+
+/* Rewards */
+#rewards {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5em;
+    margin-bottom: 2em;
+}
+
+#redeem-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.75em 1.5em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1em;
+    transition: background-color 0.3s ease;
+}
+
+#redeem-button:hover {
+    background-color: #0056b3;
+}
+
+.rewards-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reward-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.reward-item img {
+    width: 30px;
+    height: 30px;
+    margin-right: 0.5em;
+}
+
+/* Feedback */
+#feedback {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5em;
+    margin-bottom: 2em;
+}
+
+.feedback-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.feedback-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 1em;
+}
+
+/* Tournament Banner */
+.tournament-banner {
+    position: relative;
+    /* Allows for absolute positioning of inner elements */
+    color: #fff;
+    /* White text color for contrast */
+    border-radius: 12px;
+    /* Rounded corners for modern look */
+    overflow: hidden;
+    /* Ensures content does not overflow */
+    margin-bottom: 2.5em;
+    /* Space below the banner */
+    width: 100%;
+    /* Ensures full-width display */
+    height: 300px;
+    /* Fixed height to maintain design consistency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    /* Ensures the image stays behind the content */
+}
+
+.banner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures the image covers the area */
+    filter: brightness(50%);
+    /* Darkens the image for better text visibility */
+}
+
+.banner-content {
+    position: relative;
+    /* Ensures the content stays on top */
+    text-align: center;
+    padding: 1.5em;
+    max-width: 90%;
+    /* Ensures text doesn’t stretch too wide */
+    background: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background for readability */
+    border-radius: 12px;
+    /* Rounded corners for the content box */
+}
+
+.tournament-banner h3 {
+    font-size: 2.5em;
+    /* Large, bold heading for prominence */
+    font-weight: 700;
+    /* Bold text for emphasis */
+    margin-bottom: 0.5em;
+    /* Space below the heading */
+}
+
+.banner-content p {
+    font-size: 1.2em;
+    /* Larger font size for readability */
+    line-height: 1.4;
+    /* Increased line height for better readability */
+    margin-bottom: 1.5em;
+    /* Space below the paragraph */
+}
+
+.cta-button {
+    background: #ff5722;
+    /* Bold button color to stand out */
+    color: #fff;
+    /* White text color for contrast */
+    border: none;
+    border-radius: 25px;
+    /* Rounded corners for the button */
+    padding: 0.75em 2em;
+    /* Button padding */
+    font-size: 1.2em;
+    /* Slightly larger font size for the button */
+    font-weight: 600;
+    /* Bold text for emphasis */
+    text-decoration: none;
+    /* Remove underline from link */
+    display: inline-block;
+    transition: background 0.3s, transform 0.3s;
+    /* Smooth transitions for hover effects */
+}
+
+.cta-button:hover {
+    background: #e64a19;
+    /* Darker shade on hover */
+    transform: scale(1.05);
+    /* Slight zoom effect on hover */
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}

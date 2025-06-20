@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issues - Kilimani Community</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Kilimani Community</h1>
+        <nav>
+            <ul>
+                <li><a href="../dashboard.html">Dashboard</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="issues.html">Issues</a></li>
+                <li><a href="water.html">Water</a></li>
+                <li><a href="greenspace.html">Green Space</a></li>
+                <li><a href="../forum.html">Forums</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="report.html">Report an Issue</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="issues">
+            <h2>Current Issues in Kilimani</h2>
+            <p>Kilimani faces various challenges that impact the daily lives of its residents. Here are some of the pressing issues:</p>
+            <ul>
+                <li><strong>Water Shortage:</strong> The area has been experiencing intermittent water supply, affecting households and businesses.</li>
+                <li><strong>Green Space Reduction:</strong> Urban development has led to the reduction of green spaces, impacting the environment and quality of life.</li>
+                <li><strong>Traffic Congestion:</strong> Increasing traffic has led to congestion, making commutes longer and more stressful.</li>
+                <li><strong>Security Concerns:</strong> There have been reports of increased crime rates in certain parts of Kilimani, affecting the safety of residents.</li>
+            </ul>
+            <h2>What are the issues in Kilimani?</h2>
+            <p>Kilimani faces various challenges. Please let us know about any issues you are experiencing...</p>
+            
+            <div id="report-form" class="hidden">
+               
+            <h3>Comments</h3>
+            <div id="comments-section-issues">
+                <h4>Join the Discussion</h4>
+                <form class="comment-form" data-section="issues">
+                    <label for="comment-name-issues">Name:</label>
+                    <input type="text" id="comment-name-issues" required>
+                    <label for="comment-text-issues">Comment:</label>
+                    <textarea id="comment-text-issues" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="comments-list-issues" class="comments-list">
+                    <!-- Comments will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Kilimani Community</p>
+    </footer>
+</body>
+</html>

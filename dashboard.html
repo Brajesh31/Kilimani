@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kilimani Community Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <header>
+        <h1>Kilimani Community</h1>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="./templates/home.html">Home</a></li>
+                <li><a href="./templates/issues.html">Issues</a></li>
+                <li><a href="./templates/water.html">Water</a></li>
+                <li><a href="./templates/water.html">Green Space</a></li>
+                <li><a href="forum.html">Forums</a></li>
+                <li><a href="./templates/contact.html">Contact</a></li>
+                <li><a href="./templates/report.html">Report an Issue</a></li>
+                <li><a href="hall-of-fame.html">Hall of Fame</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard" class="container">
+            <div class="statistics">
+                <div class="stat">
+                    <span class="material-icons stat-icon">report_problem</span>
+                    <h3>Total Reports</h3>
+                    <p id="total-reports">157</p>
+                </div>
+                <div class="stat">
+                    <span class="material-icons stat-icon">water</span>
+                    <h3>Water Shortage Areas</h3>
+                    <p id="water-shortage-areas">12</p>
+                </div>
+                <div class="stat">
+                    <span class="material-icons stat-icon">eco</span>
+                    <h3>Green Cover Areas</h3>
+                    <p id="green-cover-areas">25</p>
+                </div>
+            </div>
+
+            <div id="map" class="map">
+                <img src="./templates/images/kilimani-map.jpg" alt="Interactive Map">
+            </div>
+
+            <div id="recent-reports" class="reports-list">
+    <h3>Recent Reports</h3>
+    <ul>
+        <li><span class="material-icons">pipe</span> Burst pipe on Gikambura Road - Reported 3 hours ago</li>
+        <li><span class="material-icons">local_drink</span> Discolored water on Argwings Kodhek Road - Reported 1 day ago</li>
+        <li><span class="material-icons">water_damage</span> Water shortage on Ole Odume Road - Reported 2 hours ago</li>
+        <li><span class="material-icons">pipe</span> Leak detected near Prestige Cinema - Reported 6 hours ago</li>
+    </ul>
+</div>
+
+
+            <div id="trends-data" class="chart-container">
+                <h3>Trends and Data</h3>
+                <canvas id="issueChart"></canvas>
+                <canvas id="waterQualityChart"></canvas>
+            </div>
+
+            <section id="notifications" class="card">
+                <h3>Notifications</h3>
+                <ul id="notifications-list">
+                    <li><span class="material-icons">info</span> Your water report is under review. - 10 minutes ago</li>
+                    <li><span class="material-icons">update</span> Maintenance scheduled for Elm Street on 2nd August. - 1 hour ago</li>
+                    <li><span class="material-icons">check_circle</span> Water quality issue on Oak Avenue resolved. - 2 hours ago</li>
+                </ul>
+            </section>
+
+            <section id="rewards" class="card">
+                <h3>Rewards and Incentives</h3>
+                <div class="reward-container">
+                    <h4>Your Points: <span id="points">320</span></h4>
+                    <button id="redeem-button">Redeem Points</button>
+                    <div id="rewards-list">
+                        <div class="reward-item">
+                            <span class="material-icons">attach_money</span>
+                            <p>10% off your next utility bill</p>
+                        </div>
+                        <div class="reward-item">
+                            <span class="material-icons">card_giftcard</span>
+                            <p>$25 gift card to local store</p>
+                        </div>
+                        <div class="reward-item">
+                            <span class="material-icons">event</span>
+                            <p>Free entry to the annual water conservation workshop</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- <section id="feedback" class="card">
+                <h3>Personalized Feedback</h3>
+                <div class="feedback-container">
+                    <span class="material-icons feedback-icon">thumb_up</span>
+                    <p>Your water usage is optimal. Keep it up! Consider reducing shower times to conserve even more.</p>
+                </div>
+            </section> -->
+
+            <section id="gamification" class="card tournament-banner">
+    <div class="banner-image">
+        <img src="./templates/images/kilimani-game.jpg.png" alt="Tournament Background">
+    </div>
+    <div class="banner-content">
+        <h3>Green Cover Tournament 2024</h3>
+        <p>Join the ultimate challenge to enhance green cover in your community! Compete for exciting prizes and make a lasting impact. Are you ready to take the challenge?</p>
+        <a href="index.html" class="cta-button">Join Now</a>
+    </div>
+</section>
+
+        </div>
+    </div>
+</section>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Kilimani Community. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Chart.js example
+        const ctx1 = document.getElementById('issueChart').getContext('2d');
+        const issueChart = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Water Shortages', 'Leaks', 'Quality Issues', 'Other'],
+                datasets: [{
+                    label: 'Reported Issues',
+                    data: [12, 20, 15, 10],
+                    backgroundColor: ['#007bff', '#28a745', '#dc3545', '#ffc107'],
+                    borderColor: ['#0056b3', '#1e7e34', '#c82333', '#e0a800'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const ctx2 = document.getElementById('waterQualityChart').getContext('2d');
+        const waterQualityChart = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'Water Quality Index',
+                    data: [70, 72, 68, 75, 80, 77, 85],
+                    fill: false,
+                    borderColor: '#007bff',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
