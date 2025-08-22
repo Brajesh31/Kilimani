@@ -52,3 +52,69 @@ It includes features for submitting detailed reports, viewing a list of all acti
 ## ## 📁 Directory Structure
 
 The project is organized into the following directories:
+Kilimani-Issues-Reporter/
+
+├── backend/            # Contains the server-side code and API endpoints. 
+
+
+├── templates/          # Contains HTML templates for rendering web pages.
+
+└── static/             # Contains static files (CSS, JavaScript, images).
+
+└── README.md           # This file.
+
+
+---
+## ## 🚀 Getting Started
+
+To get a local copy up and running, follow these steps.
+
+### ### ✅ Prerequisites
+
+* **Python 3.8+**
+* **pip** (Python package installer)
+* **Git**
+
+### ### ⚙️ Installation & Setup
+
+1.  **Clone the repository**:
+    ```sh
+    git clone [https://github.com/Brajesh31/Kilimani-Issues-Reporter.git](https://github.com/Brajesh31/Kilimani-Issues-Reporter.git)
+    ```
+2.  **Navigate to the backend directory**:
+    ```sh
+    cd Kilimani-Issues-Reporter/backend
+    ```
+3.  **Create and activate a virtual environment** (recommended):
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    ```
+4.  **Install dependencies**:
+    * Follow the instructions in `backend/README.md` or install from a `requirements.txt` file.
+    ```sh
+    pip install -r requirements.txt
+    ```
+5.  **Run the backend server**:
+    ```sh
+    flask run
+    ```
+6.  **View the application**:
+    * Open your web browser and navigate to `http://127.0.0.1:5000` (or the address provided by Flask).
+
+---
+## ## 🤝 Contributing
+
+Feel free to contribute by opening issues or submitting pull requests. Your contributions are welcome!
+🔧 Fork the repo, create a new branch, and open a pull request.
+📬 For collaboration or questions, feel free to reach out directly.
+
+---
+## ## 📜 License
+
+Distributed under the MIT License. See `LICENSE` file for more information.
+
+---
+## ## 📬 Contact
+
+Brajesh - [@Brajesh31 on GitHub](https://github.com/Brajesh31)
