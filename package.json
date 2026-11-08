@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "firebase": "^10.12.4"
+    "firebase": "^13.2.0"
   }
 }
